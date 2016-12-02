@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Employees</h1>
+    <a class="button new" href="{{ path('employee_new') }}">Add new</a>
+    <div class="employees">
+        {% for employee in employees %}
+            <div class="employee">
+                <h2 class="name">{{ employee.name }} {{ employee.surname }}</h2>
+                <p><strong>Email:</strong> <span class="email">{{ employee.email }}</span></p>
+                <p><strong>Days in office:</strong> <span class="daysInOffice">{{ employee.daysInOffice }}</span></p>
+                <strong>Bio: </strong>
+                <p class="bio">{{ employee.bio }}</p>
+                <a class="button edit" href="{{ path('employee_edit', {employeeId: employee.id}) }}">Edit</a>
+                <a class="button delete" href="{{ path('employee_delete', {employeeId: employee.id}) }}">Delete</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
