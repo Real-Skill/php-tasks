@@ -1,14 +1,41 @@
-# Symfony 2.8 - Exercise {number} - {title}
+# Symfony 2.8 - Exercise 2 - Create a simple service
 
 
 ## Summary
 
-{summary}
+Create a service and use dependency injection to register it
 
 
 ## Goals
 
-{goals}
+Your task is to create, a service accessed by service name "manager.employee" using dependency injection.
+
+When called function `getAll` of this service it should return array of employees listed below:
+```
+[
+  [
+  'id' => 1,
+  'name' => 'Martin Fowler',
+  'bio' => 'A British software developer, author and international public speaker on software development, specializing in object-oriented analysis and design, UML, patterns, and agile software development methodologies, including extreme programming'],
+  [
+  'id' => 2,
+  'name' => 'Kent Beck',
+  'bio' => 'An American software engineer and the creator of extreme programming, a software development methodology which eschews rigid formal specification for a collaborative and iterative design process'],
+  [
+  'id' => 3,
+  'name' => 'Robert Cecil Martin',
+  'bio' => 'An American software engineer and author. He is a co-author of the Agile Manifesto. He now runs a consulting firm called Clean Code'
+  ]
+]
+```
+
+Expected result of `php app/composer test-dox` for completed exercise is listed below:
+```
+AppBundle\Tests\Controller\EmployeeManager
+ [x] Should exists
+ [x] Should has method get all
+ [x] When called get all it should return employees array
+```
 
 
 ## Hints
@@ -35,7 +62,6 @@ Please remember to read documentation for Symfony 2.8 because it can differ in n
 
  * You must have installed **PHP 5** with **pdo_mysql** and **json** extensions (result of `php -m` should include pdo_mysql and json). On Debian based (Debian/Ubuntu/Mint) Linux You can install it using `sudo apt-get install php5-mysql php5-json`
  * In some cases it may be required to install **xml** extension for php (`sudo apt-get install php-xml`). Especially if you see **Attempt to load class "DOMDocument" from global namespace** 
- * You must have installed **MySQL** or **MariaDB** or run it using docker (see below in Setup/Database configuration)
  
 ## Setup
 
@@ -64,21 +90,6 @@ Please remember to read documentation for Symfony 2.8 because it can differ in n
 
     php app/console server:run
     
-## Database configuration
-
-You must have configured database to be able to run tests and website.
-
-If you have docker and docker-compose then all You have to do is to run `docker-compose up -d` and You have db ready to go. ([Install Docker Engine](https://docs.docker.com/engine/installation/), [Install Docker Compose](https://docs.docker.com/compose/install/), remember to add user to docker group after installing it `sudo usermod -a -G docker YourUserName`)
-
-If You do not have docker then You must install MySQL or MariaDB to be accessed on port `3306` (default port) and there must be created database named `realskill` to which user `realskill` with password `realskill` has access.
-```
-$ mysql -u root -p
-mysql> create database realskill;
-mysql> grant usage on *.* to realskill@localhost identified by 'realskill';
-mysql> grant all privileges on realskill.* to realskill@localhost ;
-```
-
-
 **Now You can access website via http://127.0.0.1:8000**
 
 Good luck!
