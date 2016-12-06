@@ -1,20 +1,63 @@
-# Laravel - Exercise {number} - {title}
+# Laravel - Task 3 - OAuth2
 
 
 ## Summary
 
-{summary}
+In order to complete this exercise you will need follow these steps:
+
+1. Create a laravel authentication scaffolding to be able to register and login (You will find how to do it in laravel's documentation). This step is done when:
+  * You can see login and register ling on main page
+  * When You click on register link You will see register form with "Name", "E-Mail Address", "Password", "Confirm Password" fields and "Register" button
+  * When You click on login link You will see login form with "E-Mail Address", "Password" fields, "Remember me" checkbox, "Login" button and "Forgot Your Password?" link
+  * When submitted register form with valid data user will be created
+  * When submitted register form with existing email it will show error "The email has already been taken."
+  * When submitted login form with invalid data You will see "These credentials do not match our records."
+  * When submitted login form with valid date it will log You in and redirect to "/home"
+
+2. Create API authentication (You will find how to do it in laravel's documentation). This step is done when:
+  * You have installed and configured extension for using OAuth in Laravel (official Laravel extension) 
+  * You can create OAuth Clients
+  * You can create Personal Access Tokens
+
+You can also generate Vue components and utilize them on "/home" page to be able to create OAuth Clients and Personal Access Tokens in browser.
 
 
 ## Goals
 
-{goals}
+In order to complete this exercise you will need follow these steps:
+
+1. Create a laravel authentication scaffolding to be able to register and login (You will find how to do it in laravel's documentation). This step is done when:
+  * You can see login and register ling on main page
+  * When You click on register link You will see register form with "Name", "E-Mail Address", "Password", "Confirm Password" fields and "Register" button
+  * When You click on login link You will see login form with "E-Mail Address", "Password" fields, "Remember me" checkbox, "Login" button and "Forgot Your Password?" link
+  * When submitted register form with valid data user will be created
+  * When submitted register form with existing email it will show error "The email has already been taken."
+  * When submitted login form with invalid data You will see "These credentials do not match our records."
+  * When submitted login form with valid date it will log You in and redirect to "/home"
+
+2. Create API authentication (You will find how to do it in laravel's documentation). This step is done when:
+  * You have installed and configured extension for using OAuth in Laravel (official Laravel extension) 
+  * You can create OAuth Clients
+  * You can create Personal Access Tokens
+
+You can also generate Vue components and utilize them on "/home" page to be able to create OAuth Clients and Personal Access Tokens in browser.
 
 Expected result of `php composer test-dox` for completed exercise is listed below:
 ```
-{test-dox-result}
-```
+Authentication
+ [x] Should see register link on main page
+ [x] Should see login link on main page
+ [x] Should see register form on register page
+ [x] Should see login form on login page
+ [x] Should not register new user if existing email has been submitted
+ [x] Should register new user if proper data has been submitted
+ [x] Should not login user if bad password has been given
+ [x] Should login user if good credentials has been submitted
 
+OAuth2
+ [x] Should create o auth client
+ [x] Should create personal access token and allow to access api using it
+```
 
 ## Hints
 
