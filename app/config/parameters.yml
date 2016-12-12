@@ -1,0 +1,11 @@
+parameters:
+    database_host: mariadb
+    database_port: null
+    database_name: realskill
+    database_user: realskill
+    database_password: realskill
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: 0dc2148dbff2894a1f559021f661ecee6523d73b
