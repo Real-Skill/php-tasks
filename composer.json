@@ -47,10 +47,14 @@
         "post-update-cmd": [
             "@symfony-scripts"
         ],
+        "migrate": "app/console doctrine:schema:update --force",
         "test": "phpunit -c app --colors=always",
+        "test-report": "phpunit -c app --colors=always --log-junit target/test-results.xml",
         "test-dox": "phpunit -c app --testdox",
-        "code-sniffer": "phpcs --standard=Symfony2 src",
-        "mess-detector": "phpmd src/ text phpmd-ruleset.xml"
+        "code-sniffer": "phpcs --standard=vendor/escapestudios/symfony2-coding-standard/Symfony2 src",
+        "code-sniffer-report": "phpcs --standard=vendor/escapestudios/symfony2-coding-standard/Symfony2 --report=xml --report-file=target/code-sniffer.xml src",
+        "mess-detector": "phpmd src/ text phpmd-ruleset.xml",
+        "mess-detector-report": "phpmd src/ xml phpmd-ruleset.xml --reportfile target/mess-detector.xml"
     },
     "config": {
         "bin-dir": "bin",
