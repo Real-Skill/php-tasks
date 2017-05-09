@@ -28,7 +28,7 @@
         "symfony/phpunit-bridge": "2.8.12",
         "doctrine/doctrine-fixtures-bundle": "2.3.0",
         "phpunit/phpunit": "4.8.27",
-        "phpmd/phpmd" : "2.4.3",
+        "phpmd/phpmd": "2.4.3",
         "squizlabs/php_codesniffer": "2.7.0",
         "escapestudios/symfony2-coding-standard": "2.9.1"
     },
@@ -47,10 +47,14 @@
         "post-update-cmd": [
             "@symfony-scripts"
         ],
+        "migrate": "app/console doctrine:schema:update --force",
         "test": "phpunit -c app --colors=always",
+        "test-report": "phpunit -c app --colors=always --log-junit target/test-results.xml",
         "test-dox": "phpunit -c app --testdox",
-        "code-sniffer": "phpcs --standard=Symfony2 src",
-        "mess-detector": "phpmd src/ text phpmd-ruleset.xml"
+        "code-sniffer": "phpcs --standard=vendor/escapestudios/symfony2-coding-standard/Symfony2 src",
+        "code-sniffer-report": "phpcs --standard=vendor/escapestudios/symfony2-coding-standard/Symfony2 --report=xml --report-file=target/code-sniffer.xml src",
+        "mess-detector": "phpmd src/ text phpmd-ruleset.xml",
+        "mess-detector-report": "phpmd src/ xml phpmd-ruleset.xml --reportfile target/mess-detector.xml"
     },
     "config": {
         "bin-dir": "bin",
@@ -63,7 +67,14 @@
         "symfony-web-dir": "web",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
+            "file": "app/config/parameters.yml",
+            "env-map": {
+                "database_host": "MARIADB_HOST",
+                "database_port": "MARIADB_PORT",
+                "database_name": "MARIADB_NAME",
+                "database_user": "MARIADB_USER",
+                "database_password": "MARIADB_PASSWORD"
+            }
         }
     }
 }
