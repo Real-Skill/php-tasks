@@ -71,7 +71,7 @@
       "env-map": {
         "database_host": "MARIADB_HOST",
         "database_port": "MARIADB_PORT",
-        "database_name": "MARIADB_NAME",
+        "database_name": "MARIADB_DATABASE",
         "database_user": "MARIADB_USER",
         "database_password": "MARIADB_PASSWORD"
       }
