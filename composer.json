@@ -1,69 +1,80 @@
 {
-    "name": "hakier/rs-symfony",
-    "license": "proprietary",
-    "type": "project",
-    "autoload": {
-        "psr-4": {
-            "": "src/"
-        },
-        "classmap": [
-            "app/AppKernel.php",
-            "app/AppCache.php"
-        ]
+  "name": "hakier/rs-symfony",
+  "license": "proprietary",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "": "src/"
     },
-    "require": {
-        "php": ">=5.3.9",
-        "symfony/symfony": "2.8.12",
-        "doctrine/orm": "2.4.8",
-        "doctrine/doctrine-bundle": "1.6.4",
-        "symfony/swiftmailer-bundle": "2.3.11",
-        "symfony/monolog-bundle": "2.11.1",
-        "sensio/distribution-bundle": "5.0.13",
-        "sensio/framework-extra-bundle": "3.0.16",
-        "incenteev/composer-parameter-handler": "2.1.2",
-        "twig/twig": "1.26.1"
-    },
-    "require-dev": {
-        "sensio/generator-bundle": "3.0.11",
-        "symfony/phpunit-bridge": "2.8.12",
-        "doctrine/doctrine-fixtures-bundle": "2.3.0",
-        "phpunit/phpunit": "4.8.27",
-        "phpmd/phpmd" : "2.4.3",
-        "squizlabs/php_codesniffer": "2.7.0",
-        "escapestudios/symfony2-coding-standard": "2.9.1"
-    },
-    "scripts": {
-        "symfony-scripts": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
-        ],
-        "post-install-cmd": [
-            "@symfony-scripts"
-        ],
-        "post-update-cmd": [
-            "@symfony-scripts"
-        ],
-        "test": "phpunit -c app --colors=always",
-        "test-dox": "phpunit -c app --testdox",
-        "code-sniffer": "phpcs --standard=Symfony2 src",
-        "mess-detector": "phpmd src/ text phpmd-ruleset.xml"
-    },
-    "config": {
-        "bin-dir": "bin",
-        "platform": {
-            "php": "5.3.9"
-        }
-    },
-    "extra": {
-        "symfony-app-dir": "app",
-        "symfony-web-dir": "web",
-        "symfony-assets-install": "relative",
-        "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
-        }
+    "classmap": [
+      "app/AppKernel.php",
+      "app/AppCache.php"
+    ]
+  },
+  "require": {
+    "php": ">=5.3.9",
+    "symfony/symfony": "2.8.12",
+    "doctrine/orm": "2.4.8",
+    "doctrine/doctrine-bundle": "1.6.4",
+    "symfony/swiftmailer-bundle": "2.3.11",
+    "symfony/monolog-bundle": "2.11.1",
+    "sensio/distribution-bundle": "5.0.13",
+    "sensio/framework-extra-bundle": "3.0.16",
+    "incenteev/composer-parameter-handler": "2.1.2",
+    "twig/twig": "1.26.1"
+  },
+  "require-dev": {
+    "sensio/generator-bundle": "3.0.11",
+    "symfony/phpunit-bridge": "2.8.12",
+    "doctrine/doctrine-fixtures-bundle": "2.3.0",
+    "phpunit/phpunit": "4.8.27",
+    "phpmd/phpmd": "2.4.3",
+    "squizlabs/php_codesniffer": "2.7.0",
+    "escapestudios/symfony2-coding-standard": "2.9.1"
+  },
+  "scripts": {
+    "symfony-scripts": [
+      "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+    ],
+    "post-install-cmd": [
+      "@symfony-scripts"
+    ],
+    "post-update-cmd": [
+      "@symfony-scripts"
+    ],
+    "migrate": "app/console doctrine:schema:update --force",
+    "test": "phpunit -c app --colors=always",
+    "test-report": "phpunit -c app --colors=always --log-junit target/test-results.xml",
+    "test-dox": "phpunit -c app --testdox",
+    "code-sniffer": "phpcs --standard=vendor/escapestudios/symfony2-coding-standard/Symfony2 src",
+    "code-sniffer-report": "phpcs --standard=vendor/escapestudios/symfony2-coding-standard/Symfony2 --report=xml --report-file=target/code-sniffer.xml src",
+    "mess-detector": "phpmd src/ text phpmd-ruleset.xml",
+    "mess-detector-report": "phpmd src/ xml phpmd-ruleset.xml --reportfile target/mess-detector.xml"
+  },
+  "config": {
+    "bin-dir": "bin",
+    "platform": {
+      "php": "5.3.9"
     }
+  },
+  "extra": {
+    "symfony-app-dir": "app",
+    "symfony-web-dir": "web",
+    "symfony-assets-install": "relative",
+    "incenteev-parameters": {
+      "file": "app/config/parameters.yml",
+      "env-map": {
+        "database_host": "MARIADB_HOST",
+        "database_port": "MARIADB_PORT",
+        "database_name": "MARIADB_NAME",
+        "database_user": "MARIADB_USER",
+        "database_password": "MARIADB_PASSWORD"
+      }
+    }
+  }
 }
