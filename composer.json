@@ -50,6 +50,7 @@
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize"
         ],
+        "migrate": "php artisan migrate --env produciton",
         "test": "phpunit --colors=always",
         "test-report": "phpunit --colors=always --log-junit target/test-results.xml",
         "test-dox": "phpunit --testdox",
@@ -58,6 +59,7 @@
         "mess-detector": "phpmd app/ text phpmd-ruleset.xml",
         "mess-detector-report": "phpmd app/ xml phpmd-ruleset.xml --reportfile target/mess-detector.xml",
         "verify": [
+            "@migrate",
             "@test-report",
             "@code-sniffer-report",
             "@mess-detector-report"
