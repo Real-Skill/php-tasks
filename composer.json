@@ -55,7 +55,13 @@
         "code-sniffer": "phpcs --standard=vendor/escapestudios/symfony2-coding-standard/Symfony2 src",
         "code-sniffer-report": "phpcs --standard=vendor/escapestudios/symfony2-coding-standard/Symfony2 --report=xml --report-file=target/code-sniffer.xml src",
         "mess-detector": "phpmd src/ text phpmd-ruleset.xml",
-        "mess-detector-report": "phpmd src/ xml phpmd-ruleset.xml --reportfile target/mess-detector.xml"
+        "mess-detector-report": "phpmd src/ xml phpmd-ruleset.xml --reportfile target/mess-detector.xml",
+        "verify": [
+            "@migrate",
+            "@test-report",
+            "@code-sniffer-report",
+            "@mess-detector-report"
+        ]
     },
     "config": {
         "bin-dir": "bin",
