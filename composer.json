@@ -50,14 +50,16 @@
             "php artisan optimize"
         ],
         "test": "phpunit --colors=always",
+        "test-report": "phpunit --colors=always --log-junit target/test-results.xml",
         "test-dox": "phpunit --testdox",
         "code-sniffer": "phpcs --standard=phpcs-ruleset.xml app",
+        "code-sniffer-report": "phpcs --standard=phpcs-ruleset.xml --report=xml --report-file=target/code-sniffer.xml app",
         "mess-detector": "phpmd app/ text phpmd-ruleset.xml",
+        "mess-detector-report": "phpmd app/ xml phpmd-ruleset.xml --reportfile target/mess-detector.xml",
         "verify": [
-            "@test",
-            "@test-dox",
-            "@code-sniffer",
-            "@mess-detector"
+            "@test-report",
+            "@code-sniffer-report",
+            "@mess-detector-report"
         ]
     },
     "config": {
