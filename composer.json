@@ -52,7 +52,13 @@
         "test": "phpunit --colors=always",
         "test-dox": "phpunit --testdox",
         "code-sniffer": "phpcs --standard=phpcs-ruleset.xml app",
-        "mess-detector": "phpmd app/ text phpmd-ruleset.xml"
+        "mess-detector": "phpmd app/ text phpmd-ruleset.xml",
+        "verify": [
+            "@test",
+            "@test-dox",
+            "@code-sniffer",
+            "@mess-detector"
+        ]
     },
     "config": {
         "preferred-install": "dist"
