@@ -1,0 +1,13 @@
+{
+    "protect": [
+        "target/",
+        "test/",
+        "README.md",
+        ".gitignore",
+        "composer.json",
+        "composer.lock",
+        "phpcs-ruleset.xml",
+        "phpunit.xml",
+        "phpmd-ruleset.xml"
+    ]
+}
