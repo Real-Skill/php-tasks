@@ -1,5 +1,6 @@
 {
     "protect": [
+        "serve-and-test.sh",
         "target/",
         "test/",
         "README.md",
