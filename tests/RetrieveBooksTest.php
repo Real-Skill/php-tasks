@@ -44,7 +44,7 @@ class RetrieveBooksTest extends TestCase
             ->seeInElement('tbody tr:nth-child(2) .id', '2')
             ->seeInElement('tbody tr:nth-child(2) .title', 'Clean Code: A Handbook of Agile Software Craftsmanship')
             ->seeInElement('tbody tr:nth-child(2) .author', 'Robert C. Martin')
-            ->seeInElement('tbody tr:nth-child(2) .price', '41.60');
+            ->seeInElement('tbody tr:nth-child(2) .price', '41.6');
     }
 
     /**

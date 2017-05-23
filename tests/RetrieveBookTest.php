@@ -51,7 +51,7 @@ class RetrieveBookTest extends TestCase
     {
         $this->visit('/book/2')
             ->seeInElement('.price strong', 'Price:')
-            ->seeInElement('.price span', '41.60 $');
+            ->seeInElement('.price span', '41.6 $');
     }
 
     /**
