@@ -21,7 +21,10 @@
         "sensio/distribution-bundle": "5.0.13",
         "sensio/framework-extra-bundle": "3.0.16",
         "incenteev/composer-parameter-handler": "2.1.2",
-        "twig/twig": "1.26.1"
+        "twig/twig": "1.26.1",
+        "friendsofsymfony/oauth-server-bundle": "1.5.2",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "doctrine/data-fixtures": "1.2.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "3.0.11",
@@ -65,7 +68,7 @@
     "config": {
         "bin-dir": "bin",
         "platform": {
-            "php": "5.3.9"
+            "php": "5.6"
         }
     },
     "extra": {
