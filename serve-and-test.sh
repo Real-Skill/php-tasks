@@ -14,5 +14,6 @@ kill_descendant_processes() {
 }
 
 php artisan serve &
+sleep 3
 phpunit --colors=always --log-junit target/test-results.xml
 kill_descendant_processes $$
