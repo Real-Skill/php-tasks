@@ -51,7 +51,7 @@
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize"
         ],
-        "serve": "php artisan serve",
+        "serve": "php artisan serve --host 127.0.0.1",
         "serve-and-test": "bash serve-and-test.sh",
         "migrate": "php artisan migrate --env produciton",
         "test": "phpunit --colors=always",
