@@ -8,9 +8,9 @@ Create a service and use dependency injection to register it
 
 ## Goals
 
-Your task is to create, a service accessed by service name "manager.employee" using dependency injection.
+Your task is to create a service accessed by service name "manager.employee" using dependency injection.
 
-When called function `getAll` of this service it should return array of employees listed below:
+When called, the  `getAll` function of this service should return the array of employees, as listed below:
 ```
 [
   [
@@ -29,39 +29,39 @@ When called function `getAll` of this service it should return array of employee
 ]
 ```
 
-Expected result of `php app/composer test-dox` for completed exercise is listed below:
+The expected result of `php app/composer test-dox` for the completed exercise is listed below:
 ```
 AppBundle\Tests\Controller\EmployeeManager
- [x] Should exists
- [x] Should has method get all
- [x] When called get all it should return employees array
+ [x] Should exist
+ [x] Should have get all method 
+ [x] When called, get all should return the employees' array
 ```
 
 
 ## Hints
 
-Most of changes should lay in `src` dir. You can also modify templates in `app/Resources/views`. If needed You can also modify config and other files in `app` dir.
+Most of the changes should lay in `src` dir. You can also modify templates in `app/Resources/views`. If needed, you can also modify config and other files in `app` dir.
 
-If You want to see what goals You have passed You should run: `php app/composer test-dox`. Each scenario with **[x]** has passed and those with **[ ]** has to be done.
+If you want to see which goals you have achieved you should run: `php app/composer test-dox`. Each scenario with **[x]** has passed and those with **[ ]** still have to be done.
 
-More info about errors during tests You can get running tests with command: `php app/composer test`
+More info about errors during tests you can get by running tests with the command: `php app/composer test`
 
-This task is concerned as done when all tests are passing and when code-sniffer and mess-detector do not return errors nor warnings (ignore info about "Remaining deprecation notices" during test).
+This task is considered completed when all tests are passing and when the code-sniffer and the mess-detector do not return errors or warnings (ignore the info about "Remaining deprecation notices" while testing).
 
-Remember to commit changes before You change branch.
+Remember to commit changes before you change the branch.
 
-Remember to install dependencies if You change branch.
+Remember to install dependencies if you change the branch.
 
 ### Helpful links
 
-Please remember to read documentation for Symfony 2.8 because it can differ in newer/older versions.
+Please remember to read documentation for Symfony 2.8 because its newer and older versions can differ.
 
 * [Symfony documentation](https://symfony.com/doc/2.8/page_creation.html)
 
 ## Requirements
 
- * You must have installed **PHP 5** with **pdo_mysql** and **json** extensions (result of `php -m` should include pdo_mysql and json). On Debian based (Debian/Ubuntu/Mint) Linux You can install it using `sudo apt-get install php5-mysql php5-json`
- * In some cases it may be required to install **xml** extension for php (`sudo apt-get install php-xml`). Especially if you see **Attempt to load class "DOMDocument" from global namespace** 
+ * You must have  **PHP 5** installed with **pdo_mysql** and **json** extensions (the result of `php -m` should include pdo_mysql and json). On Debian based (Debian/Ubuntu/Mint) Linux you can install it using `sudo apt-get install php5-mysql php5-json`
+ * In some cases installation of **xml** extension may be required for php (`sudo apt-get install php-xml`). Especially if you see **Attempt to load class "DOMDocument" from global namespace** 
  
 ## Setup
 
@@ -69,27 +69,27 @@ Please remember to read documentation for Symfony 2.8 because it can differ in n
 
     php app/composer install
 
-### Run tests
+### To run tests
 
     php app/composer test
 
-### Run tests as documentation
+### To run tests as documentation
 
     php app/composer test-dox
     
-### Run static analytics mess detector
+### To run static analytics mess detector
 
     php app/composer mess-detector
     
-### Run static analytics code sniffer
+### To run static analytics code sniffer
 
     php app/composer code-sniffer
 
 
-## Run php server
+## To run php server
 
     php app/console server:run
     
-**Now You can access website via http://127.0.0.1:8000**
+**Now you can access the website via http://127.0.0.1:8000**
 
 Good luck!
