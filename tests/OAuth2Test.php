@@ -24,6 +24,35 @@ class OAuth2Test extends TestCase
     }
 
     /**
+     * @return $this
+     */
+    protected function authenticate()
+    {
+        return $this->visit('login')->submitForm('Login', $this->authenticationPayload)->seePageIs('/home');
+    }
+
+    /**
+     * @test
+     */
+    public function shouldCreatePersonalAccessTokenAndAllowToAccessApiUsingIt()
+    {
+        Artisan::call('passport:install');
+
+        $this->authenticate();
+
+        $this->json('POST', 'oauth/personal-access-tokens', [
+            'name' => 'personalAccessToken',
+        ]);
+
+        $this->json('GET', '/api/user', [], ['Authorization' => 'Bearer '.$this->decodeResponseJson()['accessToken']]);
+
+        $this->seeJson([
+            'name' => 'Hakier',
+            'email' => 'hakier@fake.pl',
+        ]);
+    }
+
+    /**
      * @test
      */
     public function shouldCreateOAuthClient()
@@ -74,35 +103,6 @@ class OAuth2Test extends TestCase
         // extract access token and use it to perform request of user data
         $this->json('GET', '/api/user', [], ['Authorization' => 'Bearer '.json_decode((string)$response->getBody())->access_token]);
         // assert that proper data has been returned
-        $this->seeJson([
-            'name' => 'Hakier',
-            'email' => 'hakier@fake.pl',
-        ]);
-    }
-
-    /**
-     * @return $this
-     */
-    protected function authenticate()
-    {
-        return $this->visit('login')->submitForm('Login', $this->authenticationPayload)->seePageIs('/home');
-    }
-
-    /**
-     * @test
-     */
-    public function shouldCreatePersonalAccessTokenAndAllowToAccessApiUsingIt()
-    {
-        Artisan::call('passport:install');
-
-        $this->authenticate();
-
-        $this->json('POST', 'oauth/personal-access-tokens', [
-            'name' => 'personalAccessToken',
-        ]);
-
-        $this->json('GET', '/api/user', [], ['Authorization' => 'Bearer '.$this->decodeResponseJson()['accessToken']]);
-
         $this->seeJson([
             'name' => 'Hakier',
             'email' => 'hakier@fake.pl',
